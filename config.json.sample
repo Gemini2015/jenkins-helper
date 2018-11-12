@@ -1,0 +1,8 @@
+{
+    "host": "you jenkins host",
+    "username": "username",
+    "token": "password",
+    "config_dir": "./workspace/jenkins_config",
+    "config_backup_dir": "./workspace/jenkins_config_backup",
+    "log_dir": "./workspace/log"
+}
