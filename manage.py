@@ -4,13 +4,14 @@
 """Jenkins Helper
 Usage:
     manage.py pull [--all=<all>] [--name=<job_name>]
-    manage.py push [--all=<all>] [--name=<job_name>]
+    manage.py push [--all=<all>] [--name=<job_name>] [--path=<job_path>]
     manage.py -h | --help
 
 Options:
     -h --help                   Show this screen.
     --all=<all>                 all jobs [default: false]
     --name=<job_name>           job name [default: none]
+    --path=<job_path>           job path [default: none]
 
 """
 

@@ -22,11 +22,14 @@ class Push(JenkinsCommand):
 
         is_all = self.args["--all"] == "true"
         target_job_full_name = self.args["--name"]
+        target_job_rel_path = self.args["--path"]
 
         if is_all:
             self.push_all_jobs()
         elif target_job_full_name != "none":
             self.push_target_job(target_job_full_name)
+        elif target_job_rel_path  != "none":
+            self.push_target_job_by_path(target_job_rel_path)
         else:
             print("no target")
 
@@ -54,6 +57,16 @@ class Push(JenkinsCommand):
             job_config = f.read().decode("utf8")
 
         self.server.reconfig_job(job_full_name, job_config)
+
+    def push_target_job_by_path(self, target_job_rel_path):
+        abs_path, abs_ext = os.path.splitext(os.path.abspath(target_job_rel_path).replace("\\", "/"))
+        config_root_dir = self.config_root_dir.replace("\\", "/")
+        full_name = abs_path.replace(config_root_dir, "")
+        if full_name[0] == '/':
+            full_name = full_name[1:]
+
+        print('push_target_job_by_path ' + target_job_rel_path + " full_name " + full_name)
+        self.push_target_job(full_name)
 
     def push_all_jobs(self):
         pass

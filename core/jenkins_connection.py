@@ -34,5 +34,5 @@ class JenkinsConnection(object):
 
         user = self.server.get_whoami()
         version = self.server.get_version()
-        print(user["fullName"] + " open jenkins " + self.host + " v" + version)
+        print(self.username + " open jenkins " + self.host + " v" + version)
         return self.server
