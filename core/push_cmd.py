@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from command import JenkinsCommand
 import os
-import util
 import jenkins
+from . import util
+from .command import JenkinsCommand
 
 class Push(JenkinsCommand):
     def __init__(self):

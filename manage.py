@@ -17,11 +17,10 @@ Options:
 
 
 from core import config, command_factory
-import docopt
+from core import docopt
 import os
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
 

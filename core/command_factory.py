@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #coding:utf-8
-from command import CommandBase
-from pull_cmd import Pull
-from push_cmd import Push
+from .command import CommandBase
+from .pull_cmd import Pull
+from .push_cmd import Push
 
 commands = {
     'pull': Pull,

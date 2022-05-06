@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from command import JenkinsCommand
 import os
-import util
+from . import util
+from .command import JenkinsCommand
+import sys
 
 class Pull(JenkinsCommand):
     def __init__(self):
@@ -56,8 +57,8 @@ class Pull(JenkinsCommand):
 
         # dump xml
         job_config_path = util.absjoin(parent_path, job_name)
-        with open(job_config_path + ".xml", "w") as f:
-            f.write(job_config)
+        with open(job_config_path + ".xml", "wb") as f:
+            f.write(job_config.encode('UTF-8'))
 
     def pull_all_jobs(self):
         jobs = self.server.get_jobs()
@@ -90,5 +91,5 @@ class Pull(JenkinsCommand):
 
                 # dump xml
                 job_config_path = util.absjoin(parent_path, job_name)
-                with open(job_config_path + ".xml", "w") as f:
-                    f.write(job_config.encode("utf8"))
+                with open(job_config_path + ".xml", "wb") as f:
+                    f.write(job_config.encode('UTF-8'))

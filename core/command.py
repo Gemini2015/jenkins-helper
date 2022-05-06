@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from jenkins_connection import JenkinsConnection
+from .jenkins_connection import JenkinsConnection
 
 class CommandBase(object):
     def __init__(self):
